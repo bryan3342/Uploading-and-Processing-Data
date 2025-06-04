@@ -27,6 +27,7 @@ def main():
     Classification_of_Vehicle = df['Classification of Vehicle'].tolist()
 
 
+    # New Lists to store values into
     med_Prices = []
     med_Num_of_Passengers = []
     automobiles_high_low = []
@@ -34,19 +35,19 @@ def main():
 
     for i in range(len(Prices)):
         if Prices[i] == 'med':
-            med_Prices.append(Prices[i])
-            med_Num_of_Passengers.append(Number_of_Passengers[i])
+            med_Prices.append(Prices[i]) # Appends value from Prices if satisfy condition
+            med_Num_of_Passengers.append(Number_of_Passengers[i]) # If condition satisfied then add value from different list
         if Prices[i] == 'high' and Maintenance_Cost[i] != 'low':
             automobiles_high_low.append(i)
 
 
-    med_price_automobiles = [i for i in range(len(Prices)) if Prices[i] == 'med']
-    num_of_passengers_2 = [Number_of_Passengers[i] for i in range(len(Prices)) if Prices[i] == 'med']
+    med_price_automobiles = [i for i in range(len(Prices)) if Prices[i] == 'med'] # Iterates through Prices and appends if condition met
+    num_of_passengers_2 = [Number_of_Passengers[i] for i in range(len(Prices)) if Prices[i] == 'med'] # Adds value at i if condition met
     automobiles_high_low2 = [i for i in range(len(Prices)) if Prices[i] == 'high' and Maintenance_Cost[i] != 'low']
 
 
     nlist = [[1,2,3], ['A','B','C'], [4,5], ['D','E']]  
-    extracted_nlist = [i for n in nlist for i in n]
+    extracted_nlist = [i for n in nlist for i in n] # Seen as nested for loop, extracts from A[row][col]
 
 
     print(f'Question 3 - {med_Prices}')
@@ -56,6 +57,7 @@ def main():
     print(f'Question 7 - {num_of_passengers_2}')
     print(f'Question 8 - {automobiles_high_low2}')
     print(f'Question 9 - {extracted_nlist}')
+
 
 if __name__ == '__main__':
     main()
